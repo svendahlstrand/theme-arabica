@@ -244,6 +244,7 @@ dl dd {
 }
 
 .blog-description {
+	padding-top: 10px;
     margin: 0;
     font-size: 0.889rem;
     font-family: "Lato", sans-serif;

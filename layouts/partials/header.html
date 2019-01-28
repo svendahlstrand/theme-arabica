@@ -5,17 +5,21 @@
 				{{ if .Site.Params.logoTitle }}
 					{{ .Site.Params.logoTitle | safeHTML }}
 				{{ else }}
-           {{ .Site.Title }}
+           			{{ .Site.Title }}
 				{{ end }}
 			</a>
 		</h1>
-		<h2 class="blog-description">{{ .Site.Params.description }}</h2>
+		<h2 class="blog-description">{{ .Site.Params.description | safeHTML }}</h2>
 	</div>
 
 	<div class="nav">
     {{ $currentPage := . }}
 		{{ range .Site.Menus.main }}
-      <a class="nav- {{ if $currentPage.IsMenuCurrent "main" . }}nav-current{{ end }}" role="presentation" href="{{ .URL | relLangURL | safeURL }}">{{ .Name }}</a>
+			{{ if .Page.Params.redirect_url }}
+				<a class="page-link" href="{{ .Page.Params.redirect_url }}">{{ .Name }}</a>
+			{{ else }}
+				<a class="nav- {{ if $currentPage.IsMenuCurrent "main" . }}nav-current{{ end }}" role="presentation" href="{{ .URL | relLangURL | safeURL }}">{{ .Name }}</a>
+			{{ end }}
 		{{ end }}
 	</div>
 </header>
