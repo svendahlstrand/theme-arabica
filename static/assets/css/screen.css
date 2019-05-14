@@ -565,3 +565,7 @@ a.nav-home, a.nav-blog {
 	   font-size: 0.889rem;
 	}
 }
+
+video {
+	max-width: 100%;
+}
