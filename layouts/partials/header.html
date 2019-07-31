@@ -1,7 +1,7 @@
 <header class="main-header">
-	<div class="main-header-content">
-		<h1 class="blog-title">
-			<a href="{{ "/" | relLangURL }}">
+	<div class="h-card main-header-content">
+		<h1 class=" blog-title">
+			<a class="u-url p-name" href="{{ "/" | relLangURL }}">
 				{{ if .Site.Params.logoTitle }}
 					{{ .Site.Params.logoTitle | safeHTML }}
 				{{ else }}
@@ -9,7 +9,7 @@
 				{{ end }}
 			</a>
 		</h1>
-		<h2 class="blog-description">{{ .Site.Params.description | safeHTML }}</h2>
+		<h2 class="p-note blog-description">{{ .Site.Params.description | safeHTML }}</h2>
 	</div>
 
 	<div class="nav">
