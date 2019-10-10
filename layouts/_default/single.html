@@ -1,11 +1,12 @@
 {{ define "body_class" }}page-template{{ end }}
 {{ define "main" }}
 <main class="content" role="main">
-  <article class="post page">
+  <article class="h-entry post page">
     <header class="post-header">
-      <h2 class="post-title">{{ .Title }}</h2>
+      <h2 class="p-name post-title">{{ .Title }}</h2>
+      <a class="u-author h-card" href="/"></a>
     </header>
-    <section class="post-content">
+    <section class="e-content post-content">
       {{ .Content }}
     </section>
   </article>
