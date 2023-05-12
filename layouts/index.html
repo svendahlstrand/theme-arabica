@@ -1,5 +1,5 @@
 {{ define "main" }}
-	<main class="content" role="main">
+	<main class="content h-feed" role="main">
     {{ $paginator := .Paginate (where .Site.Pages "Type" "post") }}
     <div class="extra-pagination">
       {{ partial "pagination.html" . }}
