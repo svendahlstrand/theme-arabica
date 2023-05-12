@@ -3,7 +3,7 @@
     {{ with .Params.image }}
       <img class="u-featured" src="{{ . }}"></img>
     {{ end }}
-		<h2 class="p-name post-title"><a href="{{ .URL }}">{{ .Title }}</a></h2>
+		{{ if .Title }}<h2 class="p-name post-title"><a href="{{ .URL }}">{{ .Title }}</a></h2>{{ end }}
 	</header>
 	<section class="e-content post-excerpt">
     <p>
