@@ -12,35 +12,10 @@
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    {{ if .RSSLink -}}
-      <link href="{{ .RSSLink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
-      <link href="{{ "podcast.xml" | absURL }}" rel="alternate" type="application/rss+xml" title="Podcast" />
-      <link rel="alternate" type="application/json" title="{{ .Site.Title }}" href="{{ "feed.json" | absURL }}" />
-      <link rel="EditURI" type="application/rsd+xml" href="{{ "rsd.xml" | absURL }}" />
-    {{ end -}}
-
     <!-- Styles and Fonts -->
     <link rel="stylesheet" type="text/css" href="{{ "assets/css/normalize.css" | relURL }}" />
     <link rel="stylesheet" type="text/css" href="{{ "assets/css/icons.css" | relURL }}" />
     <link rel="stylesheet" type="text/css" href="{{ "assets/css/screen.css" | relURL }}" />
-    <link rel="stylesheet" type="text/css" href="{{ "custom.css" | relURL }}" />
-
-	<link rel="me" href="https://micro.blog/{{ .Site.Author.username }}" />
-	{{ with .Site.Params.twitter_username }}
-		<link rel="me" href="https://twitter.com/{{ . }}" />
-	{{ end }}
-	{{ with .Site.Params.github_username }}
-		<link rel="me" href="https://github.com/{{ . }}" />
-	{{ end }}
-	{{ with .Site.Params.instagram_username }}
-		<link rel="me" href="https://instagram.com/{{ . }}" />
-	{{ end }}
-	<link rel="authorization_endpoint" href="https://micro.blog/indieauth/auth" />
-	<link rel="token_endpoint" href="https://micro.blog/indieauth/token" />
-	<link rel="micropub" href="https://micro.blog/micropub" />
-	<link rel="microsub" href="https://micro.blog/microsub" />
-	<link rel="webmention" href="https://micro.blog/webmention" />
-	<link rel="subscribe" href="https://micro.blog/users/follow" />
 
     {{ if .Site.Params.replaceGoogleFonts }}
     <link href="https://{{ .Site.Params.replaceGoogleFonts }}/css?family=Bree+Serif|Lato:100,100i,300,300i,400,400i,700,700i|Source+Code+Pro:300,400,500,700" rel="stylesheet">
@@ -59,11 +34,5 @@
     {{ range .Site.Params.customCSS }}
     <link rel="stylesheet" href="{{ "/css/" | relURL }}{{ . }}">
     {{ end }}
-
-    {{ range .Site.Params.plugins_css }}
-       <link rel="stylesheet" href="{{ . }}" />
-     {{ end }}
-     {{ range $filename := .Site.Params.plugins_html }}
-       {{ partial $filename $ }}
-     {{ end }}
+    {{ partial "microblog_head.html" . }}
 </head>
