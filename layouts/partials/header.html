@@ -18,7 +18,7 @@
 			{{ if .Page.Params.redirect_url }}
 				<a class="nav-" href="{{ .Page.Params.redirect_url }}">{{ .Name }}</a>
 			{{ else }}
-				<a class="nav- {{ if eq $currentPage.URL .URL }}nav-current{{ end }}" role="presentation" href="{{ .URL | relLangURL | safeURL }}">{{ .Name }}</a>
+				<a class="nav- {{ if eq $currentPage.RelPermalink .URL }}nav-current{{ end }}" role="presentation" href="{{ .URL | relLangURL | safeURL }}">{{ .Name }}</a>
 			{{ end }}
 		{{ end }}
 	</div>
